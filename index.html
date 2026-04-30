@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form-box">
+  <h2>Student Registration</h2>
+
+  <input type="text" id="username" placeholder="User Name">
+  <input type="text" id="fullname" placeholder="Full Name">
+  <input type="number" id="number" placeholder="Mobile Number">
+  <input type="number" id="age" placeholder="Age">
+
+  <div class="radio">
+    Gender:
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+  </div>
+<select id="course">
+  <option value="">Select Course</option>
+  <option value="B-Pharma">B-Pharma</option>
+  <option value="D-Pharma">D-Pharma</option>
+  <option value="M-Pharma">M-Pharma</option>
+  <option value="Other">Other</option>
+  
+</select>
+
+
+  <input type="number" id="fees" placeholder="Fees">
+  <input type="email" id="email" placeholder="Email ID">
+
+  <button onclick="saveData()">Register</button>
+  <a href="display.html">View Students</a>
+</div>
+
+<script src="node.js"></script>
+</body>
+</html>

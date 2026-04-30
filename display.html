@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Data</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="table-box">
+  <h2>Student List</h2>
+  <input type="text" id="search" placeholder="Search by name" onkeyup="searchData()">
+<div class="top-bar">
+  <h3>Student Dashboard</h3>
+  <button onclick="logout()">Logout</button>
+</div>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Course</th>
+        <th>Fees</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <a href="index.html">⬅ Back</a>
+</div>
+
+<script>
+let students = JSON.parse(localStorage.getItem("students")) || []
+
+function showData(data = students){
+  let table = document.getElementById("tableBody")
+  table.innerHTML = ""
+
+  data.forEach((item, index) => {
+    table.innerHTML += `
+      <tr>
+        <td>${item.username}</td>
+        <td>${item.fullname}</td>
+        <td>${item.number}</td>
+        <td>${item.age}</td>
+        <td>${item.gender}</td>
+        <td>${item.course}</td>
+        <td>${item.fees}</td>
+        <td>${item.email}</td>
+        <td>
+          <button onclick="editData(${index})">Edit</button>
+          <button onclick="deleteData(${index})">Delete</button>
+        </td>
+      </tr>
+    `
+  })
+}
+
+function deleteData(index){
+  students.splice(index,1)
+  localStorage.setItem("students", JSON.stringify(students))
+  showData()
+}
+
+showData()
+
+let auth = localStorage.getItem("auth")
+
+if(auth !== "true"){
+  alert("Unauthorized Access ❌")
+  window.location.href = "login.html"
+}
+function logout(){
+  localStorage.removeItem("auth")
+  window.location.href = "login.html"
+}
+
+</script>
+
+</body>
+</html>
