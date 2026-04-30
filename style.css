@@ -5,28 +5,15 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 10px;
 
-  /* 🔥 Beautiful gradient background */
   background: linear-gradient(135deg, #667eea, #764ba2, #6dd5ed);
-  height: 100vh;
+
+  min-height: 100vh;
 
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 15px;
-
-  background: linear-gradient(135deg, #667eea, #764ba2, #6dd5ed);
-  
-  min-height: 100vh;   /* 🔥 change */
-  
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;  /* 🔥 change */
+  align-items: center;   /* 🔥 center wapas */
 }
 
 /* 📦 Form Box */
