@@ -236,3 +236,30 @@ input, select, button {
   max-width: 400px;
   padding: 20px;
 }
+@media (max-width: 500px) {
+  .form-box {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;          /* 🔥 full screen height */
+    
+    border-radius: 0;       /* 🔥 corners remove */
+    
+    margin: 0;              /* gap remove */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* content center */
+  }
+}
+@media (max-width: 500px) {
+  input, select, button {
+    padding: 14px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 500px) {
+  body {
+    padding: 0;
+    align-items: stretch;   /* 🔥 full stretch */
+  }
+}
