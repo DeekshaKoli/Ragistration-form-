@@ -34,22 +34,56 @@ function saveData() {
   alert("Registered Successfully ✅")
 
   document.querySelector("form")?.reset()
+
+  let data = JSON.parse(localStorage.getItem("students")) || []
+
+let editIndex = localStorage.getItem("editIndex")
+
+if(editIndex !== null){
+  data[editIndex] = student   // 🔥 update existing
+  localStorage.removeItem("editIndex")
+} else {
+  data.push(student)          // ➕ new add
 }
+
+localStorage.setItem("students", JSON.stringify(data))
+}
+// function searchData(){
+  // let value = document.getElementById("search").value.toLowerCase()
+
+  // let filtered = students.filter(item =>
+  //   item.fullname.toLowerCase().includes(value)
+  // )
+
+  // showData(filtered)
 function searchData(){
   let value = document.getElementById("search").value.toLowerCase()
 
-  let filtered = students.filter(item =>
+  let students = JSON.parse(localStorage.getItem("students")) || [];
+
+  let filtered = students.filter(item => 
     item.fullname.toLowerCase().includes(value)
   )
 
   showData(filtered)
 }
+
+
+// function editData(index){
+//   let student = students[index]
+
+//   localStorage.setItem("editIndex", index)
+
+  // redirect to form page
+//   window.location.href = "index.html"
+// }
 function editData(index){
+  let students = JSON.parse(localStorage.getItem("students")) || [];
+
   let student = students[index]
 
   localStorage.setItem("editIndex", index)
 
-  // redirect to form page
   window.location.href = "index.html"
 }
 let editIndex = localStorage.getItem("editIndex")
