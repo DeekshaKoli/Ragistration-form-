@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div class="form-box">
+<form class="form-box" onsubmit="saveData(); return false;">
   <h2>Student Registration</h2>
 
   <input type="text" id="username" placeholder="User Name">
@@ -36,7 +36,7 @@
   <!-- <button onclick="saveData()">Register</button> -->
    <button type="button" onclick="saveData()">Register</button>
   <a href="display.html">View Students</a>
-</div>
+</form>
 
 <script src="script.js"></script>
 </body>

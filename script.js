@@ -1,4 +1,5 @@
 function saveData() {
+
   let username = document.getElementById("username").value
   let fullname = document.getElementById("fullname").value
   let number = document.getElementById("number").value
@@ -27,26 +28,20 @@ function saveData() {
 
   let data = JSON.parse(localStorage.getItem("students")) || []
 
-  data.push(student)
+  let editIndex = localStorage.getItem("editIndex")
+
+  if(editIndex !== null){
+    data[editIndex] = student   // ✅ update
+    localStorage.removeItem("editIndex")
+  } else {
+    data.push(student)          // ✅ new add
+  }
 
   localStorage.setItem("students", JSON.stringify(data))
 
   alert("Registered Successfully ✅")
 
   document.querySelector("form")?.reset()
-
-  let data = JSON.parse(localStorage.getItem("students")) || []
-
-let editIndex = localStorage.getItem("editIndex")
-
-if(editIndex !== null){
-  data[editIndex] = student   // 🔥 update existing
-  localStorage.removeItem("editIndex")
-} else {
-  data.push(student)          // ➕ new add
-}
-
-localStorage.setItem("students", JSON.stringify(data))
 }
 // function searchData(){
   // let value = document.getElementById("search").value.toLowerCase()
